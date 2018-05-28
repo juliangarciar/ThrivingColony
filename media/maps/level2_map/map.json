@@ -1,0 +1,181 @@
+{
+	"map": {
+		"heightmap": "media/maps/level2_map/level2_map_heightmap.bmp",
+		"texture": "media/maps/level2_map/level2_map_texture.bmp",
+		"detail_texture": "",
+		"skybox_textures": [
+			"media/maps/level2_map/bluefreeze_rt.tga",
+			"media/maps/level2_map/bluefreeze_lf.tga",
+			"media/maps/level2_map/bluefreeze_up.tga",
+			"media/maps/level2_map/bluefreeze_dn.tga",
+			"media/maps/level2_map/bluefreeze_bk.tga",
+			"media/maps/level2_map/bluefreeze_ft.tga"
+		],
+		"scale":{
+			"x": 40,
+			"y": 4,
+			"z": 40
+		},
+		"size":{
+			"width": 10240,
+			"height": 10240
+		},
+		"margins":{
+			"top": 1000,
+			"right": 9240,
+			"bottom": 9240,
+			"left": 1000
+		}
+	},
+	"game":{
+		"metal_productivity": 20,
+		"crystal_productivity": 20,
+		"expansion_increment": 20,
+		"expansion_increment_times": 5,
+		"citizen_increment": 1,
+		"win_condition": {
+			"player": "IA", 
+			"building": "MainBuilding",
+			"condition": "==",
+			"value": 0
+		},
+		"lose_condition": {
+			"player": "Human", 
+			"building": "MainBuilding",
+			"condition": "==",
+			"value": 0
+		}
+	},
+	"camera":{
+		"zoom": {
+			"min": 400,
+			"max": 1500,
+			"initialDistanceFromTarget": 1000
+		},
+		"rotation": {
+			"min_inclination": 200,
+			"max_inclination": 260,
+			"initialRotation": {
+				"x": 0,
+				"y": 230
+			}
+		}
+	},
+	"lights":[
+		{
+			"position": {
+				"x": 5000,
+				"y": 5000,
+				"z": 5000
+			},
+			"color": {
+				"r": 1,
+				"g": 1,
+				"b": 1
+			},
+			"height": 2000,
+			"intensity": 100000
+		}
+	],
+	"buildables":[
+		{"type": "Barn", "isBuildable": true},
+		{"type": "Barrack", "isBuildable": true},
+		{"type": "Hospital", "isBuildable": true},
+		{"type": "House", "isBuildable": true},
+		{"type": "Market", "isBuildable": true},
+		{"type": "Quarry", "isBuildable": true},
+		{"type": "Siderurgy", "isBuildable": true},
+		{"type": "School", "isBuildable": true},
+		{"type": "Tower", "isBuildable": true},
+		{"type": "Wall", "isBuildable": true},
+		{"type": "Workshop", "isBuildable": true}
+	],
+	"expandableTerrain": true,
+	"player":
+	{
+		"initial_metal": 800,
+		"initial_crystal": 0,
+		"siderurgy_productivity": 10,
+		"quarry_productivity": 5,
+		"building_radius": 2000,
+		"mainBuilding": {
+			"position": {
+				"x": 7480,
+				"z": 3520
+			},
+			"scale": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		},
+		"buildings":[
+			{
+				"type": "Siderurgy", 
+				"position": {
+					"x": 7480,
+					"z": 3960
+				},
+				"scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"rotation": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}
+		]
+	},
+	"IA":
+	{
+		"enabled": true,
+		"initial_metal": 800,
+		"initial_crystal": 0,
+		"siderurgy_productivity": 10,
+		"quarry_productivity": 5,
+		"building_radius": 2000,
+		"mainBuilding": {
+			"position": {
+				"x": 3240,
+				"z": 6440
+			},
+			"scale": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			}
+		},
+		"buildings":[
+{
+				"type": "Siderurgy", 
+				"position": {
+					"x": 3240,
+					"z": 6840
+				},
+				"scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"rotation": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				}
+			}
+		]
+	}
+}

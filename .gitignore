@@ -1,0 +1,14 @@
+# Ignore build
+obj/*
+# Ignore executables
+bin/*
+# VSCode configurations
+.vscode
+# Ignore Mac specific files
+.DS_Store
+# o files
+test/*
+# o files
+*.o
+# d files
+*.d
