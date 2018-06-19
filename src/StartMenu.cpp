@@ -3,7 +3,7 @@
 #include <SoundEngine/SoundSystem.h>
 
 StartMenu::StartMenu() {
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 	video = new Video("media/videos/Pantalla_menu.mp4");
 	video -> play();
 	video -> setLoop(true);
@@ -129,7 +129,7 @@ StartMenu::~StartMenu() {
     delete mapsCb;
     delete buttonPlay;
     delete buttonBack;
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 	delete video;
 #endif
 }

@@ -1,7 +1,11 @@
 #ifndef OBDTYPES_H
 #define OBDTYPES_H
 
-#include <glad/glad.h>
+#ifdef USE_GLAD
+	#include <glad/glad.h>
+#else
+	#include <GLFW/glfw3.h>
+#endif
 
 #include <glm/glm.hpp>
 #include <glm/mat4x4.hpp>

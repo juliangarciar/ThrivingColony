@@ -1,7 +1,7 @@
 #ifndef OBDVIDEO_H
 #define OBDVIDEO_H
 
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 
 #include "OBDShaderProgram.h"
 #include "OBDSceneNode.h"

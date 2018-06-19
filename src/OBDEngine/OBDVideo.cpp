@@ -1,4 +1,4 @@
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 
 #include "OBDVideo.h"
 #include "Graphics/TVideo.h"

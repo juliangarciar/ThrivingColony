@@ -22,7 +22,7 @@ DBG = lldb
 # Include paths
 CPPFLAGS = -I/mingw64/include -I/mingw64/include/eigen3 -I$(PROJECTROOT)/include -I$(PROJECTROOT)/include/nanovg
 # Compiler params
-CPPFLAGS += -g -O3 -std=c++11 -m64 -ffast-math -Wall -Wno-macro-redefined -Wno-unused-value -Wno-delete-non-virtual-dtor -Wno-unknown-pragmas -DUSEVIDEO -DGLFW_DLL -DGLFW_INCLUDE_NONE -DNANOGUI_GLAD -DNANOGUI_SHARED
+CPPFLAGS += -g -O3 -std=c++11 -m64 -ffast-math -Wall -Wno-macro-redefined -Wno-unused-value -Wno-delete-non-virtual-dtor -Wno-unknown-pragmas -DUSE_VIDEO -DUSE_GLAD -DGLFW_DLL -DGLFW_INCLUDE_NONE -DNANOGUI_GLAD -DNANOGUI_SHARED
 # Lib paths
 LDFLAGS = -L/mingw64/lib -L/mingw64/lib/x86_64-linux-gnu -L/mingw64/lib/X11 -L/mingw64/local/lib -L$(PROJECTROOT)/lib -Wl,-R -Wl,$(PROJECTROOT)/lib
 # Libs
