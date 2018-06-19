@@ -2,15 +2,15 @@
 # Created by Mario Gonzalez and Julian Garcia
 
 # Name of the executable created
-TARGET = test
+TARGET = libterterrain.dll
 # Project root
-PROJECTROOT = ..
+PROJECTROOT = .
 # Path for the executable
 BINPATH = bin
 # Path for the .o files
 BUILDPATH = obj
 # Path for the source files
-SOURCEPATHS = . $(PROJECTROOT)/src/OBDEngine
+SOURCEPATHS = src
 #C++ compiler
 CXX = clang++
 #C++ debugger
@@ -20,13 +20,13 @@ DBG = lldb
 # FLAGS
 ####
 # Include paths
-CPPFLAGS = -I/usr/include -I/usr/include/eigen3 -I$(PROJECTROOT)/include -I$(PROJECTROOT)/include/nanovg
+CPPFLAGS = -I/mingw64/include -I$(PROJECTROOT)/include -I/mingw64/include/glib-2.0 -I/mingw64/lib/x86_64-linux-gnu/glib-2.0/include
 # Compiler params
-CPPFLAGS += -O3 -ffast-math -g -Wall -Wno-macro-redefined -Wno-unsequenced -Wno-unused-value -std=c++11 -m64 -pthread -DGL_GLEXT_PROTOTYPES
+CPPFLAGS += -g -Wall -MMD -MP -fPIC -D_CRT_SECURE_NO_WARNINGS -DDEBUG -std=c++11
 # Lib paths
-LDFLAGS = -L/usr/lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/X11 -L$(PROJECTROOT)/lib -Wl,-R -Wl,$(PROJECTROOT)/lib
+LDFLAGS = -L/mingw64/lib -L/mingw64/lib/x86_64-linux-gnu -L/mingw64/lib/X11 -L$(PROJECTROOT)/lib -Wl,-R -Wl,$(PROJECTROOT)/lib
 # Libs
-LIBS = -lGL -lXxf86vm -lXext -lX11 -lXcursor -lXrandr -lXinerama -lXi -lpthread -ldl -lrt -lglfw -lGLEW -lglib-2.0 -lterterrain
+LIBS = -lm -lstdc++
 
 ######## DON'T EDIT ANYTHING BELOW THIS LINE
 EXECUTABLE := $(BINPATH)/$(TARGET)
@@ -49,7 +49,8 @@ all: $(BUILDPATH) $(OBJ_FILES)
 	$(info =================================)
 	$(info Creando el ejecutable $(Target)...)
 	$(info =================================)
-	@$(CXX) $(CPPFLAGS) $(OBJ_FILES) -o $(EXECUTABLE) $(LDFLAGS) $(LIBS)
+	gcc -shared $(OBJ_FILES) -o $(EXECUTABLE) $(LDFLAGS) $(LIBS)
+#	@$(CXX) $(CPPFLAGS) $(OBJ_FILES) -o $(EXECUTABLE) $(LDFLAGS) $(LIBS)
     
 $(BUILDPATH)/%.o: %.cpp
 	$(info Creando el binario para el archivo $<...)

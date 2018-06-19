@@ -22,7 +22,7 @@ SOURCE_PATHS = ./src
 # Paths for the includes
 INCLUDE_PATHS = /usr/include /usr/include/eigen3 ./include ./include/nanovg ./src
 # Paths for the libs
-LIB_PATHS = /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/X11 /usr/local/lib ./lib
+LIB_PATHS = /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/X11 /usr/local/lib ./lib/linux
 
 ####
 # FLAGS
@@ -32,13 +32,13 @@ CFLAGS = -g -O3 -m64 -ffast-math
 # Warning params
 CFLAGS += -Wall -Wno-macro-redefined -Wno-unused-value -Wno-delete-non-virtual-dtor -Wno-unknown-pragmas
 # Preprocesor params
-CFLAGS += -DUSE_VIDEO -DGL_GLEXT_PROTOTYPE -DGLFW_INCLUDE_GLEXT -DNANOGUI_SHARED
+CFLAGS += -DUSE_VIDEO -DGL_GLEXT_PROTOTYPES
 # Compiler params
 CPPFLAGS = -std=c++11
 # Linker flags
 LDFLAGS = 
 # Libraries
-LIBS = -lpthread -ldl -lrt -lXxf86vm -lXext -lX11 -lXcursor -lXrandr -lXinerama -lXi -lGL -lglfw -lnanogui -lfmod -lfmodstudio -lterterrain -laabbtree -lavformat -lavcodec -lavutil -lswresample -lswscale
+LIBS = -lpthread -ldl -lrt -lm -lXxf86vm -lXext -lX11 -lXcursor -lXrandr -lXinerama -lXi -lGL -lglfw -lnanogui -lfmod -lfmodstudio -lterterrain -laabbtree -lavformat -lavcodec -lavutil -lswresample -lswscale
 
 ######## DON'T EDIT ANYTHING BELOW THIS LINE
 EXECUTABLE := $(BIN_PATH)/$(TARGET)
@@ -64,7 +64,7 @@ all: $(BUILD_PATH) $(OBJ_FILES)
 	$(info =================================)
 	$(info Creando el ejecutable $(Target)...)
 	$(info =================================)
-	@$(CC) $(OBJ_FILES) -o $(EXECUTABLE) $(LDFLAGS) $(LIBS)
+	@$(CXX) $(OBJ_FILES) -o $(EXECUTABLE) $(LDFLAGS) $(LIBS)
     
 $(BUILD_PATH)/%.o: %.c
 	$(info Creando el binario para el archivo $<...)
