@@ -81,7 +81,7 @@ function execfun() {
 		;;
 		MINGW*)
 			echo "Ejecutando el proyecto para Windows"
-			export LD_LIBRARY_PATH=./lib/mingw64:$LD_LIBRARY_PATH
+			export PATH=./lib/mingw64:$PATH
 			./bin/ThrivingColony.exe
 		;;
 		*) echo "UNKNOWN: ${unameOut}";;

@@ -14,7 +14,7 @@ TARGET = ThrivingColony.exe
 # PATHS
 ####
 # Path for the executable
-BIN_PATH = .
+BIN_PATH = ./bin
 # Path for the .o files
 BUILD_PATH = ./obj
 # Paths for the .cpp files
@@ -22,7 +22,7 @@ SOURCE_PATHS = ./src
 # Paths for the includes
 INCLUDE_PATHS = /mingw64/include /mingw64/include/eigen3 ./include ./include/nanovg ./src
 # Paths for the libs
-LIB_PATHS = /mingw64/lib /mingw64/local/lib ./lib
+LIB_PATHS = /mingw64/lib /mingw64/local/lib ./lib/mingw64
 
 ####
 # FLAGS
@@ -58,13 +58,13 @@ LIBRARY_DIRS := $(foreach DIR,$(LIB_PATHS),$(patsubst %, -L%, $(DIR)))
 LDFLAGS += $(LIBRARY_DIRS)
 
 # MAKE OPTIONS
-.PHONY: all run debug clean cleanfolder
+.PHONY: all prepare run debug clean cleanfolder
 
-all: $(BUILD_PATH) $(OBJ_FILES)
+all: prepare $(OBJ_FILES)
 	$(info =================================)
 	$(info Creando el ejecutable $(Target)...)
 	$(info =================================)
-	@$(CC) $(OBJ_FILES) -o $(EXECUTABLE) $(LDFLAGS) $(LIBS)
+	@$(CXX) $(OBJ_FILES) -o $(EXECUTABLE) $(LDFLAGS) $(LIBS)
     
 $(BUILD_PATH)/%.o: %.c
 	$(info Creando el binario para el archivo $<...)
@@ -74,7 +74,7 @@ $(BUILD_PATH)/%.o: %.cpp
 	$(info Creando el binario para el archivo $<...)
 	@$(CXX) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
-$(BUILD_PATH):
+prepare:
 	$(info =================================)
 	$(info Creando la estructura de carpetas...)
 	$(info =================================)
@@ -95,15 +95,3 @@ cleanfolder:
 	$(info =================================)
 	@$(RM) $(EXECUTABLE)
 	@$(RM) -r $(BUILD_PATH)/$(FOLDER)
-
-run: all
-	$(info =================================)
-	$(info Ejecutando...)
-	$(info =================================)
-	@$(EXECUTABLE)
-
-debug: all
-	$(info =================================)
-	$(info Ejecutando...)
-	$(info =================================)
-	@$(DBG) $(EXECUTABLE)
