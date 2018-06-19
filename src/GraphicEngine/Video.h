@@ -1,7 +1,7 @@
 #ifndef VIDEO_H
 #define VIDEO_H
 
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 
 #include <Types.h>
 #include <OBDEngine/OBDVideo.h>

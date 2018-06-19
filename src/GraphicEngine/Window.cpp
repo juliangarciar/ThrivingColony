@@ -63,10 +63,12 @@ void Window::Init(i32 width, i32 height) {
 
     glfwMakeContextCurrent(window);
 
+#ifdef USE_GLAD
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)){
         std::cout << "No se pudo inicializar GLAD." << std::endl;
         exit(0);
     }
+#endif
 
     engine = new OBDEngine();
 	engine -> Init(windowWidth, windowHeight);
@@ -107,7 +109,7 @@ void Window::Init(i32 width, i32 height) {
     billboardLayer = engine -> createShaderedSceneNode("billboardShader", "media/shaders/vertexShaderBillboards.glsl", "media/shaders/fragmentShaderBillboards.glsl");
 	billboardProgram = engine -> getRegisteredShaderProgram("billboardShader");
 
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 	engine -> InitVideoSystem();
 #endif
     imageLayer = engine -> createShaderedSceneNode("imageShader", "media/shaders/vertexShaderImageVideo.glsl", "media/shaders/fragmentShaderImageVideo.glsl");

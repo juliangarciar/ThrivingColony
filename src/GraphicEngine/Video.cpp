@@ -1,4 +1,4 @@
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 #include "Video.h"
 #include "Window.h"
 

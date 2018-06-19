@@ -1,6 +1,6 @@
 #include "TVideo.h"
 
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 
 TVideo::TVideo(GLuint pID, VideoData *d){	
 	programID = pID;

@@ -95,7 +95,7 @@ class StartMenu {
 		//Image
 		Image *image;
 
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 		//Video
 		Video *video;
 #endif

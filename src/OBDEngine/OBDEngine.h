@@ -57,7 +57,7 @@ class OBDEngine {
          */
         void draw();
 
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 		/**
 		 * @brief 
 		 * 
@@ -163,7 +163,7 @@ class OBDEngine {
          */
         OBDBillboard* createBillboard(OBDSceneNode*, OBDShaderProgram *, glm::vec3, glm::vec2);
 
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
         /**
          * @brief create a new video
          * @param  parent

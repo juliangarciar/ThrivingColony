@@ -76,7 +76,7 @@ void OBDEngine::draw() {
     TEntity::cache.getLights()->clear();
 }
 
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 void OBDEngine::InitVideoSystem(){
 	av_register_all();
 	avformat_network_init();
@@ -159,7 +159,7 @@ OBDBillboard* OBDEngine::createBillboard(OBDSceneNode* layer, OBDShaderProgram *
     return new OBDBillboard(layer, p, pos, size);
 }
 
-#ifdef USEVIDEO
+#ifdef USE_VIDEO
 OBDVideo* OBDEngine::createVideo(OBDSceneNode *layer, OBDShaderProgram *p, std::string path){
 	return new OBDVideo(layer, p, path);
 }
