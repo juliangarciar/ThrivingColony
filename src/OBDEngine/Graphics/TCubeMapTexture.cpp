@@ -22,7 +22,7 @@ TCubemapTexture::TCubemapTexture(std::vector<ResourceIMG *> textures) {
 
 	for (int i = 0; i < textures.size(); i++){
 		if (textures[i]->getChannels() == 1)
-			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_R, textures[i]->getWidth(), textures[i]->getHeight(), 0, GL_R, GL_UNSIGNED_BYTE, textures[i]->getResource());
+			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RED, textures[i]->getWidth(), textures[i]->getHeight(), 0, GL_RED, GL_UNSIGNED_BYTE, textures[i]->getResource());
 		else if (textures[i]->getChannels() == 2)
 			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RG, textures[i]->getWidth(), textures[i]->getHeight(), 0, GL_RG, GL_UNSIGNED_BYTE, textures[i]->getResource());
 		else if (textures[i]->getChannels() == 3)

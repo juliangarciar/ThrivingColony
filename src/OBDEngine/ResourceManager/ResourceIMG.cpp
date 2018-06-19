@@ -42,7 +42,7 @@ void ResourceIMG::setGLTexture(){
 		glGenerateMipmap(GL_TEXTURE_2D);
 		
 		if (channels == 1)
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_R, width, height, 0, GL_R, GL_UNSIGNED_BYTE, resource);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, width, height, 0, GL_RED, GL_UNSIGNED_BYTE, resource);
 		else if (channels == 2)
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RG, width, height, 0, GL_RG, GL_UNSIGNED_BYTE, resource);
 		else if (channels == 3)
