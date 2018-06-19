@@ -6,11 +6,11 @@ function repairExtras() {
 	cd $ROOT/extras/aabbTree > /dev/null
 	make clean > /dev/null
 	make > /dev/null
-	cp ./bin/libaabbtree.so $ROOT/lib > /dev/null
+	cp ./bin/libaabbtree.dll $ROOT/lib > /dev/null
 	cd $ROOT/extras/ter-terrain > /dev/null
 	make clean > /dev/null
 	make > /dev/null
-	cp ./bin/libterterrain.so $ROOT/lib > /dev/null
+	cp ./bin/libterterrain.dll $ROOT/lib > /dev/null
 	echo "Finalizado"
 }
 

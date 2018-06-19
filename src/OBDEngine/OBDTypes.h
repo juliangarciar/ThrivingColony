@@ -1,10 +1,7 @@
 #ifndef OBDTYPES_H
 #define OBDTYPES_H
 
-// Use OpenGL 3.0+, but don't use GLU
-#define GLFW_INCLUDE_GL3
-#define GLFW_NO_GLU
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 #include <glm/glm.hpp>
 #include <glm/mat4x4.hpp>

@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include "Window.h"
 
 Window* Window::pinstance = 0;
@@ -58,9 +59,14 @@ void Window::Init(i32 width, i32 height) {
         exit(0);
     }
 
-    std::cout << "Info: estas usando la version de OpenGL " <<  glfwGetWindowAttrib(window, GLFW_CONTEXT_VERSION_MAJOR) << "." << glfwGetWindowAttrib(window, GLFW_CONTEXT_VERSION_MINOR) << std::endl;
+    std::cout << "Info: estas utilizando la version de OpenGL " <<  glfwGetWindowAttrib(window, GLFW_CONTEXT_VERSION_MAJOR) << "." << glfwGetWindowAttrib(window, GLFW_CONTEXT_VERSION_MINOR) << std::endl;
 
     glfwMakeContextCurrent(window);
+
+    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)){
+        std::cout << "No se pudo inicializar GLAD." << std::endl;
+        exit(0);
+    }
 
     engine = new OBDEngine();
 	engine -> Init(windowWidth, windowHeight);

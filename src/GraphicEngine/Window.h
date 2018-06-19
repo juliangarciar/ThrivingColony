@@ -1,9 +1,9 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <OBDEngine/OBDEngine.h>
 #include <GLFW/glfw3.h>
 #include <nanogui/nanogui.h>
+#include <OBDEngine/OBDEngine.h>
 
 #include <Types.h>
 #include <MathEngine/Vector2.h>

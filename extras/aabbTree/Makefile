@@ -2,7 +2,7 @@
 # Created by Mario Gonzalez and Julian Garcia
 
 # Name of the executable created
-TARGET = libaabbtree.so
+TARGET = libaabbtree.dll
 # Project root
 PROJECTROOT = .
 # Path for the executable
@@ -20,13 +20,13 @@ DBG = lldb
 # FLAGS
 ####
 # Include paths
-CPPFLAGS = -I/usr/include -I$(PROJECTROOT)/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+CPPFLAGS = -I/mingw64/include -I$(PROJECTROOT)/include -I/mingw64/include/glib-2.0 -I/mingw64/lib/x86_64-linux-gnu/glib-2.0/include
 # Compiler params
-CPPFLAGS += -g -Wall -MMD -MP -D_CRT_SECURE_NO_WARNINGS -DDEBUG -std=c++11 -fPIC
+CPPFLAGS += -g -Wall -MMD -MP -D_CRT_SECURE_NO_WARNINGS -DDEBUG -std=c++11
 # Lib paths
-LDFLAGS = -L/usr/lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/X11 -L$(PROJECTROOT)/lib -Wl,-R -Wl,$(PROJECTROOT)/lib -L. -lmy
+LDFLAGS = -L/mingw64/lib -L/mingw64/lib/x86_64-linux-gnu -L/mingw64/lib/X11 -L$(PROJECTROOT)/lib -Wl,-R -Wl,$(PROJECTROOT)/lib
 # Libs
-LIBS = -lm
+LIBS = -lm -lstdc++
 
 ######## DON'T EDIT ANYTHING BELOW THIS LINE
 EXECUTABLE := $(BINPATH)/$(TARGET)
@@ -49,7 +49,7 @@ all: $(BUILDPATH) $(OBJ_FILES)
 	$(info =================================)
 	$(info Creando el ejecutable $(Target)...)
 	$(info =================================)
-	gcc -shared $(OBJ_FILES) -o $(EXECUTABLE)
+	gcc -shared $(OBJ_FILES) -o $(EXECUTABLE) $(LDFLAGS) $(LIBS)
 #	@$(CXX) $(CPPFLAGS) $(OBJ_FILES) -o $(EXECUTABLE) $(LDFLAGS) $(LIBS)
     
 $(BUILDPATH)/%.o: %.cpp

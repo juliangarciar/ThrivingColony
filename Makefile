@@ -2,11 +2,11 @@
 # Created by Mario Gonzalez and Julian Garcia
 
 # Name of the executable created
-TARGET = ThrivingColony
+TARGET = ThrivingColony.exe
 # Project root
 PROJECTROOT = .
 # Path for the executable
-BINPATH = $(PROJECTROOT)/bin
+BINPATH = $(PROJECTROOT)
 # Path for the .o files
 BUILDPATH = $(PROJECTROOT)/obj
 #Directories
@@ -20,13 +20,13 @@ DBG = lldb
 # FLAGS
 ####
 # Include paths
-CPPFLAGS = -I/usr/include -I/usr/include/eigen3 -I$(PROJECTROOT)/include -I$(PROJECTROOT)/include/nanovg
+CPPFLAGS = -I/mingw64/include -I/mingw64/include/eigen3 -I$(PROJECTROOT)/include -I$(PROJECTROOT)/include/nanovg
 # Compiler params
-CPPFLAGS += -g -O3 -std=c++11 -m64 -ffast-math -pthread -Wall -Wno-macro-redefined -Wno-unused-value -Wno-delete-non-virtual-dtor -DGL_GLEXT_PROTOTYPES -DUSEVIDEO
+CPPFLAGS += -g -O3 -std=c++11 -m64 -ffast-math -Wall -Wno-macro-redefined -Wno-unused-value -Wno-delete-non-virtual-dtor -Wno-unknown-pragmas -DUSEVIDEO -DGLFW_DLL -DGLFW_INCLUDE_NONE -DNANOGUI_GLAD -DNANOGUI_SHARED
 # Lib paths
-LDFLAGS = -L/usr/lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/X11 -L/usr/local/lib -L$(PROJECTROOT)/lib -Wl,-R -Wl,$(PROJECTROOT)/lib -Wl,--no-as-needed
+LDFLAGS = -L/mingw64/lib -L/mingw64/lib/x86_64-linux-gnu -L/mingw64/lib/X11 -L/mingw64/local/lib -L$(PROJECTROOT)/lib -Wl,-R -Wl,$(PROJECTROOT)/lib
 # Libs
-LIBS = -lGL -lXxf86vm -lXext -lX11 -lXcursor -lXrandr -lXinerama -lXi -lpthread -ldl -lrt -lglfw -lnanogui -lfmod -lfmodstudio -lterterrain -laabbtree -lavformat -lavcodec -lavutil -lswresample -lswscale
+LIBS = -lglad -lglfw3 -lopengl32 -lglu32 -lgdi32 -lpthread -lnanogui -lfmod64 -lfmodstudio64 -lterterrain -laabbtree -lavformat -lavcodec -lavutil -lswresample -lswscale
 
 ######## DON'T EDIT ANYTHING BELOW THIS LINE
 EXECUTABLE := $(BINPATH)/$(TARGET)
