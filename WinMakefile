@@ -8,21 +8,21 @@ CXX = clang++
 # Debugger
 DBG = lldb
 # Name of the executable created
-TARGET = ThrivingColony
+TARGET = ThrivingColony.exe
 
 ####
 # PATHS
 ####
 # Path for the executable
-BIN_PATH = ./bin
+BIN_PATH = .
 # Path for the .o files
 BUILD_PATH = ./obj
 # Paths for the .cpp files
 SOURCE_PATHS = ./src
 # Paths for the includes
-INCLUDE_PATHS = /usr/include /usr/include/eigen3 ./include ./include/nanovg ./src
+INCLUDE_PATHS = /mingw64/include /mingw64/include/eigen3 ./include ./include/nanovg ./src
 # Paths for the libs
-LIB_PATHS = /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/X11 /usr/local/lib ./lib
+LIB_PATHS = /mingw64/lib /mingw64/local/lib ./lib
 
 ####
 # FLAGS
@@ -32,13 +32,13 @@ CFLAGS = -g -O3 -m64 -ffast-math
 # Warning params
 CFLAGS += -Wall -Wno-macro-redefined -Wno-unused-value -Wno-delete-non-virtual-dtor -Wno-unknown-pragmas
 # Preprocesor params
-CFLAGS += -DUSE_VIDEO -DGL_GLEXT_PROTOTYPE -DGLFW_INCLUDE_GLEXT -DNANOGUI_SHARED
+CFLAGS += -DUSE_VIDEO -DUSE_GLAD -DGLFW_DLL -DGLFW_INCLUDE_NONE -DNANOGUI_GLAD -DNANOGUI_SHARED
 # Compiler params
 CPPFLAGS = -std=c++11
 # Linker flags
 LDFLAGS = 
 # Libraries
-LIBS = -lpthread -ldl -lrt -lXxf86vm -lXext -lX11 -lXcursor -lXrandr -lXinerama -lXi -lGL -lglfw -lnanogui -lfmod -lfmodstudio -lterterrain -laabbtree -lavformat -lavcodec -lavutil -lswresample -lswscale
+LIBS = -lglad -lglfw3 -lopengl32 -lglu32 -lgdi32 -lpthread -lnanogui -lfmod64 -lfmodstudio64 -lterterrain -laabbtree -lavformat -lavcodec -lavutil -lswresample -lswscale
 
 ######## DON'T EDIT ANYTHING BELOW THIS LINE
 EXECUTABLE := $(BIN_PATH)/$(TARGET)
